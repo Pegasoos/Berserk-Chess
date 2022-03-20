@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Match extends Model {}
 
-Project.init(
+Match.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,27 +11,39 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    match_time:{
+      type:DataTypes.INTEGER,
+      allowNull:false
+    },
+    player1: {
       type: DataTypes.STRING,
       allowNull: false,
+      references:{
+        model:"user",
+        key:""
+      }
     },
-    description: {
+    player2: {
       type: DataTypes.STRING,
+      allowNull:false,
+      references:{
+        model:"user",
+        key:"username"
+      }
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
+    winner: {
+      type:DataTypes.STRING,
+      allowNull:false,
+      references:{
+        model:"user",
+        key:"username"
+      }
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'id',
+        key: 'username',
       },
     },
   },
@@ -40,8 +52,8 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'match',
   }
 );
 
-module.exports = Project;
+module.exports = Match;
