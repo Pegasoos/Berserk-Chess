@@ -19,32 +19,25 @@ Match.init(
       type: DataTypes.STRING,
       allowNull: false,
       references:{
-        model:"user",
-        key:""
+        model:'user',
+        key:'username'
       }
     },
     player2: {
       type: DataTypes.STRING,
       allowNull:false,
       references:{
-        model:"user",
-        key:"username"
+        model:'user',
+        key:'username'
       }
     },
     winner: {
       type:DataTypes.STRING,
       allowNull:false,
       references:{
-        model:"user",
-        key:"username"
+        model:'user',
+        key:'username'
       }
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'username',
-      },
     },
   },
   {
