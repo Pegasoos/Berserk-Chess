@@ -4,7 +4,7 @@ USE bchess_db;
 CREATE TABLE IF NOT EXISTS user(
     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     username VARCHAR(30) NOT NULL UNIQUE,
-    password VARCHAR(30) NOT NULL,
+    password VARCHAR(300) NOT NULL,
     wins INT DEFAULT (0)
     );
 CREATE TABLE IF NOT EXISTS matches(
