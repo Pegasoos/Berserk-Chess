@@ -45,7 +45,7 @@ Match.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'match',
+    modelName: 'matches',
   }
 );
 
