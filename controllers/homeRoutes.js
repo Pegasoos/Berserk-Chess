@@ -1,5 +1,12 @@
 const router = require('express').Router();
 
-router.get('/', async (req, res) =>{
-  res.render('homepage', {logged_in:res.session.logged_in});
+router.get('/', (req, res) =>{
+  try{
+    res.render('homepage', {logged_in:res.session.logged_in});
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
+
+module.exports = router;
