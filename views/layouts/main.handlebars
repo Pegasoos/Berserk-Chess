@@ -14,7 +14,7 @@
         </div>
         <div class = "nav-bar">
             <ul>
-                <li class = "nav-item">Play</li>
+                <li class = "nav-item"><a href = "/">Play</a></li>
                 <li class = "nav-item">
                     {{#if logged_in}}
                     <a href = "/logout"><button id = "logout-button"></button></a>
@@ -22,7 +22,8 @@
                     <a href = "/login"><button id = "login-button">Login/SignUp</button></a>
                     {{/if}}
                 </li>
-                <li class = "nav-item">Profile</li>
+                <li class = "nav-item"><a href = "/profile">Profile</a></li>
+                <li class = "nav-item"><a href = "/leaderboard">Rankings</a></li>
             </ul>
         </div>
     </nav>
