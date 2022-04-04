@@ -37,6 +37,10 @@ Match.init(
       references:{
         model:'user',
         key:'username'
+      },
+      match_date:{
+        type:DataTypes.DATE,
+        default:DataTypes.NOW
       }
     },
   },
