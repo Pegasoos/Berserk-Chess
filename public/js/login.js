@@ -1,10 +1,8 @@
 const loginHandler = async (e) =>{
   e.preventDefault();
-  const username = document.querySelector('#username-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
-
+  const username = document.getElementById('username-login').value.trim();
+  const password = document.getElementById('password-login').value.trim();
   if (username && password){
-
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({username, password}),
@@ -62,5 +60,6 @@ document.querySelector('#sign-up-card').style.display = 'none';
 document.querySelectorAll('.login-toggle-button').forEach(function(button){
   button.addEventListener('click', toggleHandler);
 });
+console.log(document.querySelector('#login-button'));
 document.querySelector('#login-button').addEventListener('click', loginHandler);
 document.querySelector('#signup-button').addEventListener('click', signUpHandler);

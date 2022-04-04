@@ -13,9 +13,11 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const dotenv = require('dotenv').config()
+const dotenv = require('dotenv').config();
+console.log(dotenv);
 
 const sess = {
+  rolling:true,
   secret: process.env.SECRET,
   cookie: {},
   resave: true,
