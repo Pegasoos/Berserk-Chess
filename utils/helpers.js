@@ -4,4 +4,7 @@ module.exports = {
       new Date(date).getFullYear() + 5
     }`;
   },
+  fix_Ranking: (iterator) => {
+    return iterator + 1;
+  }
 };

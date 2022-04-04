@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { User } = require('../models');
 
 router.get('/', (req, res) =>{
   try{
@@ -23,9 +24,11 @@ router.get('/gameboard', (req, res) =>{
     res.status(500).json(err);
   }
 });
-router.get('/leaderboard', (req, res) =>{
+router.get('/leaderboard', async (req, res) =>{
   try{
-    res.render('leaderboard');
+    const leaderData = await User.findAll();
+    const leaders = leaderData.map((player) => player.get({ plain:true }));
+    res.render('leaderboard', { leaders });
   } catch (err){
     res.status(500).json(err);
   }
