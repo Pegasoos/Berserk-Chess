@@ -12,7 +12,7 @@ const loginHandler = async (e) =>{
     });
 
     if(response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/profile');
     } else {
       alert('Wrong Username or Password.');
     }

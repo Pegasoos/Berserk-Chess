@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) =>{
   try{
-    res.render('homepage');
+    res.render('homepage', {logged_in:req.session.logged_in});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -12,7 +12,11 @@ router.get('/', (req, res) =>{
 });
 router.get('/login', (req, res) => {
   try{
-    res.render('login');
+    if(req.session.logged_in){
+      res.redirect('/profile');
+      return;
+    }
+    res.render('login', {logged_in:req.session.logged_in});
   } catch (err){
     console.log(err);
     res.status(500).json(err);
@@ -20,7 +24,7 @@ router.get('/login', (req, res) => {
 });
 router.get('/gameboard', withAuth, (req, res) => {
   try{
-    res.render('gameboard');
+    res.render('gameboard', {logged_in:req.session.logged_in});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -40,7 +44,7 @@ router.get('/leaderboard', async (req, res) =>{
 });
 router.get('/profile', withAuth, (req, res) =>{
   try{
-    res.render('profile');
+    res.render('profile',{logged_in:req.session.logged_in});
   } catch (err){
     res.status(500).json(err);
   }
