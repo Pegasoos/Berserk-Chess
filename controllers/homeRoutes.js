@@ -26,7 +26,11 @@ router.get('/gameboard', (req, res) =>{
 });
 router.get('/leaderboard', async (req, res) =>{
   try{
-    const leaderData = await User.findAll();
+    const leaderData = await User.findAll({
+      order:[
+        ['wins', 'DESC']
+      ]
+    });
     const leaders = leaderData.map((player) => player.get({ plain:true }));
     res.render('leaderboard', { leaders });
   } catch (err){

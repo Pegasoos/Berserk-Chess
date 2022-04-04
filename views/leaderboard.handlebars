@@ -1,6 +1,6 @@
 <main id = "leaderboard-box">
     <h1>
-        Placeholder
+        Berserk chess Rankings
     </h1>
     <div id = "rank-heading">
         <h3>Rank</h3>
@@ -8,7 +8,7 @@
         <h3>Wins</h3>
     </div>
     {{#each leaders}}
-    <p>{{@index}}</p>
+    <p>{{fix_Ranking @index}}</p>
     <p>{{this.username}}</p>
     <p>{{this.wins}}</p>
     {{/each}}
