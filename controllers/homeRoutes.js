@@ -37,7 +37,7 @@ router.get('/leaderboard', async (req, res) =>{
       ]
     });
     const leaders = leaderData.map((player) => player.get({ plain:true }));
-    res.render('leaderboard', { leaders });
+    res.render('leaderboard', { leaders, logged_in:req.session.logged_in });
   } catch (err){
     res.status(500).json(err);
   }

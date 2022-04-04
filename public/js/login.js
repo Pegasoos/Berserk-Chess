@@ -33,7 +33,7 @@ const signUpHandler = async (e) =>{
     });
 
     if(response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/profile');
     } else {
       alert('Invalid Username or Password: Passwords must be at least 6 characters!');
     }
