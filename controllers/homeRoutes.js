@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) =>{
   try{
@@ -17,7 +18,7 @@ router.get('/login', (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get('/gameboard', (req, res) =>{
+router.get('/gameboard', withAuth, (req, res) => {
   try{
     res.render('gameboard');
   } catch (err) {
@@ -37,7 +38,7 @@ router.get('/leaderboard', async (req, res) =>{
     res.status(500).json(err);
   }
 });
-router.get('/profile', (req, res) =>{
+router.get('/profile', withAuth, (req, res) =>{
   try{
     res.render('profile');
   } catch (err){
