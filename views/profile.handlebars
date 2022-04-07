@@ -1,3 +1,24 @@
 <main id = "profile">
-    <h1>PLACEHOLDER PROFILE</h1>
+    <h1>{{user.username}}</h1>
+    <section id = "profile-box">
+        <div class = "winloss">
+            <h2>Wins:{{user.wins}}</h2>
+            <h2>Losses:<!--Add code to calculate losses--></h2>
+        </div>
+    <div id = "match-history-box">
+        {{#each matches}}
+        <div class = "match-box"<!--Add css to make border red for losses and green for wins-->
+            <h3>
+                {{this.player1}} vs. {{this.player2}}
+            </h3>
+            <h2>
+                {{this.match_time}}
+            </h2>
+            <h3>
+                {{this.winner}}
+            </h3>
+        </div>
+        {{/each}}
+    </div>
+    </section>
 </main>
